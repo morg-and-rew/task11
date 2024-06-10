@@ -22,10 +22,10 @@ public class BulletShooter : MonoBehaviour
 
         while (isWork)
         {
-            Vector3 _vector3direction = (_target.position - transform.position).normalized;
-            Bullet NewBullet = Instantiate(_bulletPrefab, transform.position + _vector3direction, Quaternion.identity);
+            Vector3 directionToTarget = (_target.position - transform.position).normalized;
+            Bullet newBullet = Instantiate(_bulletPrefab, transform.position + directionToTarget, Quaternion.identity);
 
-            NewBullet.GetComponent<Rigidbody>().transform.up = _vector3direction;
+            newBullet.transform.up = directionToTarget;
 
             yield return _waitForSeconds;
         }
